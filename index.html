@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarHub - Portal de Gerenciamento de Carros</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#e6f0ff',
+              100: '#cce0ff',
+              200: '#99c2ff',
+              300: '#66a3ff',
+              400: '#3385ff',
+              500: '#0066ff',
+              600: '#0052cc',
+              700: '#003d99',
+              800: '#002966',
+              900: '#001433',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gradient-to-br from-primary-50 to-white min-h-screen flex flex-col">
+  <div class="flex-grow flex items-center justify-center p-4">
+    <div class="max-w-4xl w-full bg-white rounded-lg shadow-2xl overflow-hidden">
+      <div class="md:flex">
+        <!-- Imagem lateral -->
+        <div class="md:w-1/2 bg-primary-600 flex items-center justify-center p-12 hidden md:block">
+          <div class="text-center">
+            <i class="fas fa-car text-white text-7xl mb-6"></i>
+            <h2 class="text-3xl font-bold text-white mb-4">CarHub</h2>
+            <p class="text-primary-100">Seu sistema completo para gerenciamento de carros</p>
+          </div>
+        </div>
+        
+        <!-- Conteúdo principal -->
+        <div class="md:w-1/2 p-8">
+          <div class="text-center mb-8">
+            <div class="flex items-center justify-center mb-4 md:hidden">
+              <i class="fas fa-car text-primary-600 text-5xl mr-3"></i>
+              <h2 class="text-3xl font-bold text-primary-600">CarHub</h2>
+            </div>
+            <h1 class="text-2xl font-bold text-gray-800">Bem-vindo ao Sistema CarHub</h1>
+            <p class="text-gray-600 mt-2">Faça login para acessar o sistema</p>
+          </div>
+          
+          <div id="loading" class="text-center py-8">
+            <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-600"></div>
+            <p class="mt-4 text-gray-600">Verificando sessão...</p>
+          </div>
+          
+          <div id="content" class="hidden">
+            <div class="space-y-6">
+              <a href="login.php" class="block w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-4 rounded-md transition duration-300 text-center">
+                Entrar no Sistema
+              </a>
+              
+              <a href="cadastro.php" class="block w-full border-2 border-primary-600 text-primary-600 hover:bg-primary-50 font-bold py-3 px-4 rounded-md transition duration-300 text-center">
+                Criar Nova Conta
+              </a>
+              
+              <a href="index.php" class="block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-4 rounded-md transition duration-300 text-center">
+                Visitar Site Público
+              </a>
+            </div>
+            
+            <div class="mt-8 text-center">
+              <p class="text-sm text-gray-600">
+                Sistema desenvolvido para o trabalho acadêmico.<br>
+                Versão 1.0 - Maio/2025
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="bg-gray-800 text-white py-4 mt-auto">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 CarHub. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Verificar se o usuário está logado
+    document.addEventListener('DOMContentLoaded', function() {
+      // Simular um pequeno atraso para mostrar o loading
+      setTimeout(function() {
+        // Fazer uma requisição para verificar o status de login
+        fetch('check_login.php')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Erro ao verificar sessão');
+            }
+            return response.json();
+          })
+          .then(data => {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('content').classList.remove('hidden');
+            
+            if (data.loggedIn) {
+              // Se estiver logado, redirecionar para a área principal
+              window.location.href = 'area_principal.php';
+            }
+          })
+          .catch(error => {
+            console.error('Erro:', error);
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('content').classList.remove('hidden');
+            alert('Não foi possível verificar a sessão. Tente novamente mais tarde.');
+          });
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
