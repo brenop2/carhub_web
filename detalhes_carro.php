@@ -61,7 +61,7 @@ if (!$carro) {
     <div class="container mx-auto px-4 py-4 flex items-center justify-between">
       <a href="index.php" class="flex items-center text-primary-600 font-bold text-2xl">
         <i class="fas fa-car mr-2 text-3xl"></i>
-        <span>CarHub</span>
+        <span>CarHub Ollama</span>
       </a>
       <nav class="hidden md:flex space-x-6">
         <a href="index.php#carros" class="text-gray-700 hover:text-primary-600 font-medium">Carros</a>
@@ -106,7 +106,7 @@ if (!$carro) {
     <div class="bg-white rounded-lg shadow-md overflow-hidden">
       <div class="md:flex">
         <div class="md:w-1/2">
-          <img src="uploads/<?php echo htmlspecialchars($carro['imagem']); ?>" alt="Imagem do carro" class="w-full max-h-96 object-contain rounded-lg mb-4">
+          <img src="<?= htmlspecialchars($carro['imagem']) ?>" alt="Imagem do carro" class="w-full max-h-96 object-contain rounded-lg mb-4">
         </div>
         <div class="md:w-1/2 p-8">
           <h1 class="text-3xl font-bold text-gray-800 mb-4"><?php echo htmlspecialchars($carro['modelo']); ?></h1>

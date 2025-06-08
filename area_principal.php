@@ -68,7 +68,7 @@ $carros_recentes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="container mx-auto px-4 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center text-primary-600 font-bold text-2xl">
         <i class="fas fa-car mr-2 text-3xl"></i>
-        <span>CarHub</span>
+        <span>CarHub Ollama</span>
       </a>
       <div class="flex items-center space-x-4">
         <div class="relative group">
@@ -176,9 +176,9 @@ $carros_recentes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   <?php foreach ($carros_recentes as $carro): ?>
                     <tr>
                       <td class="py-3 px-4">
-                        <img src="<?php echo !empty($carro['imagem']) ? 'uploads/' . htmlspecialchars($carro['imagem']) : 'imagens/padrao.png'; ?>"
-                          alt="<?php echo htmlspecialchars($carro['modelo']); ?>"
-                          class="h-12 w-16 object-cover rounded">
+                        <img src="<?= !empty($carro['imagem']) ? htmlspecialchars($carro['imagem']) : 'imagens/padrao.png'; ?>" 
+                          alt="<?= htmlspecialchars($carro['modelo']) ?>"
+                          class="h-12 w-16 object-cover rounded"/>
                       </td>
                       <td class="py-3 px-4 text-sm font-medium text-gray-900"><?php echo htmlspecialchars($carro['modelo']); ?></td>
                       <td class="py-3 px-4 text-sm text-gray-500"><?php echo htmlspecialchars($carro['marca']); ?></td>

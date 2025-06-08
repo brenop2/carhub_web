@@ -63,7 +63,6 @@ try {
                             <div class="p-6">
                                 <h3 class="text-xl font-semibold text-gray-800 mb-2"><?= htmlspecialchars($carro['modelo']) ?></h3>
                                 <p class="text-gray-600 mb-1">Marca: <?= htmlspecialchars($carro['marca']) ?></p>
-                                <p class="text-gray-600 mb-4">Ano: <?= htmlspecialchars($carro['ano']) ?></p>
                                 <div class="flex justify-between items-center">
                                     <span class="text-xl font-bold text-blue-700">R$ <?= number_format($carro['preco'], 2, ',', '.') ?></span>
                                     <a href="detalhes_carro.php?id=<?= $carro['id'] ?>" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300">

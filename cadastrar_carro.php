@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="container mx-auto px-4 py-4 flex items-center justify-between">
       <a href="index.php" class="flex items-center text-primary-600 font-bold text-2xl">
         <i class="fas fa-car mr-2 text-3xl"></i>
-        <span>CarHub</span>
+        <span>CarHub Ollama</span>
       </a>
       <div class="flex items-center space-x-4">
         <div class="relative group">

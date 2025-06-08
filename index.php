@@ -126,7 +126,7 @@
       <?php if (count($carros) > 0): ?>
         <?php foreach ($carros as $carro): ?>
           <div class="bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2">
-            <img src="uploads/<?php echo htmlspecialchars($carro['imagem']); ?>" alt="Imagem do carro" class="w-full max-h-96 object-contain rounded-lg mb-4">
+            <img src="<?= htmlspecialchars($carro['imagem']) ?>" alt="Imagem do carro" class="w-full max-h-96 object-contain rounded-lg mb-4">
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800 mb-2"><?php echo htmlspecialchars($carro['modelo']); ?></h3>
               <p class="text-gray-600 mb-4">Marca: <?php echo htmlspecialchars($carro['marca']); ?></p>
@@ -256,7 +256,7 @@
           <div>
             <a href="index.php" class="flex items-center text-white font-bold text-2xl mb-4">
               <i class="fas fa-car mr-2 text-3xl"></i>
-              <span>CarHub</span>
+              <span>CarHub Ollama</span>
             </a>
             <p class="text-gray-400">Sua plataforma completa para compra e venda de carros.</p>
           </div>
