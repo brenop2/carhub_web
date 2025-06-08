@@ -1,0 +1,3 @@
+[2025-05-05 07:55:17] Erro na conexão com o banco de dados: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-05 07:56:08] Erro na conexão com o banco de dados: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-05 07:59:00] Erro na conexão com o banco de dados: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
